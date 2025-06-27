@@ -7,4 +7,5 @@ o.shiftwidth = 4
 o.tabstop = 4
 o.softtabstop = 4
 o.colorcolumn = "80"
+o.relativenumber = true
 -- o.cursorlineopt ='both' -- to enable cursorline!
