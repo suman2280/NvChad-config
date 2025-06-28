@@ -66,5 +66,8 @@ return {
     opts = {},
     cmd = { "Typr", "TyprStats" },
   },
-
+  {
+    "christoomey/vim-tmux-navigator",
+      lazy = false,
+  },
 }

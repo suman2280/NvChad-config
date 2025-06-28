@@ -32,3 +32,9 @@ map("n", "<leader>dgl", function()
 -- Gopher mappings
 map("n", "<leader>gsj", "<cmd>GoTagAdd json<CR>", { desc = "Gopher: Add JSON struct tags" })
 map("n", "<leader>gsy", "<cmd>GoTagAdd yaml<CR>", { desc = "Gopher: Add YAML struct tags" })
+
+-- tmux mappings
+map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "window left" })
+map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "window right" })
+map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", { desc = "window down" })
+map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", { desc = "window up" })
