@@ -15,16 +15,48 @@ return {
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
-
-   {
+  {
+    "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function ()
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.setup()
+      dap.listeners.after.event_initialized["dapui_config"] = function ()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function ()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function ()
+        dapui.close()
+      end
+    end
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      handlers = {},
+      ensure_installed = {
+        "codelldb",
+      },
+    },
+  },
+  {
    	"nvim-treesitter/nvim-treesitter",
    	opts = {
    		ensure_installed = {
    			"vim", "lua", "vimdoc",
-        "html", "css", "go",
+        "html", "css", "go", "cpp",
    		},
    	},
-   },
+  },
   {
     "mfussenegger/nvim-dap",
     dependencies = {
@@ -32,7 +64,7 @@ return {
       "nvim-neotest/nvim-nio",
     },
     config = function ()
-        require("dapui").setup({})
+      require("dapui").setup({})
     end,
   },
   {
@@ -45,6 +77,7 @@ return {
   },
   {
     "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
     ft = "go",
     opts = function()
       return require "configs.none-ls"

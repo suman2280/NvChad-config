@@ -14,6 +14,7 @@ map("i", "jk", "<ESC>")
 map("i", "<C-CR>", "<Esc>o", { noremap = true, silent = true })
 -- Nvim-dap mappings
 map("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>", { desc = "DAP: Toggle Breakpoint" })
+map("n", "<leader>dr", "<cmd>DapContinue<CR>", { desc = "Start or continue debugger" })
 map("n", "<leader>dus", function()
     -- Ensure nvim-dap-ui is installed for widgets to be available
     local widgets = require("dap.ui.widgets")

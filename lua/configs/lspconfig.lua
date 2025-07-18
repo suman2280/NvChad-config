@@ -2,7 +2,7 @@ require("nvchad.configs.lspconfig").defaults()
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local servers = { "html", "cssls", "gopls", "gofumpt", "golines", "goimports-reviser", "delve" }
+local servers = { "html", "cssls", "gopls", "gofumpt", "golines", "goimports-reviser", "delve", "clangd", "clang-format", "codelldb", }
 vim.lsp.enable(servers)
 
 -- read :h vim.lsp.config for changing options of lsp servers 
@@ -25,4 +25,12 @@ lspconfig.gopls.setup {
       },
     },
   },
+}
+
+lspconfig.clangd.setup {
+  on_attach = function (client, bufnr)
+    client.server_capabilities.signatureHelpProvide = false
+    on_attach(client, bufnr)
+  end,
+  capabilities = capabilities,
 }
