@@ -72,6 +72,8 @@ return {
     ft = "python",
     dependencies = {
       "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
     },
     config = function (_, opts)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
@@ -88,6 +90,9 @@ return {
   },
   {
     "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    },
     event = "VeryLazy",
     ft = {"go", "python"},
     opts = function()
