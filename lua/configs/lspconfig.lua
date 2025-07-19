@@ -2,7 +2,7 @@ require("nvchad.configs.lspconfig").defaults()
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local servers = { "html", "cssls", "gopls", "gofumpt", "golines", "goimports-reviser", "delve", "clangd", "clang-format", "codelldb", }
+local servers = { "html", "cssls", "gopls", "gofumpt", "golines", "goimports-reviser", "delve", "clangd", "clang-format", "codelldb", "pyright", "mypy", "ruff", "black", "debugpy" }
 vim.lsp.enable(servers)
 
 -- read :h vim.lsp.config for changing options of lsp servers 
@@ -33,4 +33,10 @@ lspconfig.clangd.setup {
     on_attach(client, bufnr)
   end,
   capabilities = capabilities,
+}
+
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"python"},
 }

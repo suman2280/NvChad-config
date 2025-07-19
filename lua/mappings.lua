@@ -30,6 +30,11 @@ map("n", "<leader>dgl", function()
     require("dap-go").debug_last()
   end, { desc = "DAP-Go: Debug Last Go Test" })
 
+-- Nvim-dap-python mappings
+map("n", "<leader>dpr", function ()
+  require('dap-python').test_method()
+end)
+
 -- Gopher mappings
 map("n", "<leader>gsj", "<cmd>GoTagAdd json<CR>", { desc = "Gopher: Add JSON struct tags" })
 map("n", "<leader>gsy", "<cmd>GoTagAdd yaml<CR>", { desc = "Gopher: Add YAML struct tags" })

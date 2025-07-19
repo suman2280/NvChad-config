@@ -53,7 +53,7 @@ return {
    	opts = {
    		ensure_installed = {
    			"vim", "lua", "vimdoc",
-        "html", "css", "go", "cpp",
+        "html", "css", "go", "cpp", "python"
    		},
    	},
   },
@@ -68,6 +68,17 @@ return {
     end,
   },
   {
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    config = function (_, opts)
+      local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+      require("dap-python").setup(path)
+    end
+  },
+  {
     "dreamsofcode-io/nvim-dap-go",
     ft = "go",
     dependencies = "mfussenegger/nvim-dap",
@@ -78,7 +89,7 @@ return {
   {
     "nvimtools/none-ls.nvim",
     event = "VeryLazy",
-    ft = "go",
+    ft = {"go", "python"},
     opts = function()
       return require "configs.none-ls"
     end,
