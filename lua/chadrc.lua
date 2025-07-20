@@ -4,6 +4,8 @@
 
 ---@type ChadrcConfig
 local M = {}
+local fn = vim.fn
+local sep_l = ""
 
 M.base46 = {
 	theme = "catppuccin",
@@ -15,10 +17,29 @@ M.base46 = {
 }
 
 -- M.nvdash = { load_on_startup = true }
--- M.ui = {
---       tabufline = {
---          lazyload = false
---      }
---}
+M.ui = {
+  statusline = {
+    modules = {
+      cursor = function()
+        local line = fn.line "."
+        local col = fn.virtcol "."
+        local chad = string.format(" %d:%d", line, col) .. " │ "
+
+          -- default cursor_position module
+        local left_sep = "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#" .. " "
+
+        local current_line = fn.line "."
+        local total_line = fn.line "$"
+        local text = math.modf((current_line / total_line) * 100) .. tostring "%%"
+        text = string.format("%4s", text)
+
+        text = (current_line == 1 and "Top") or text
+        text = (current_line == total_line and "Bot") or text
+
+        return left_sep .. "%#St_pos_text#" .. chad .. text .. " "
+      end,
+    }
+  }
+}
 
 return M
