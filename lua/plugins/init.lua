@@ -65,6 +65,7 @@ return {
     },
     config = function ()
       require("dapui").setup({})
+      require "configs.dap"
     end,
   },
   {
