@@ -15,7 +15,6 @@ local opts = {
       end,
     }),
     require("none-ls.diagnostics.ruff"),
-    require("none-ls.diagnostics.eslint"),
     null_ls.builtins.formatting.prettier,
   },
   on_attach = function(client, bufnr)
