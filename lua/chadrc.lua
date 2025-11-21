@@ -1,6 +1,6 @@
--- This file needs to have same structure as nvconfig.lua 
+-- This file needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
--- Please read that file to know all available options :( 
+-- Please read that file to know all available options :(
 
 ---@type ChadrcConfig
 local M = {}
@@ -8,12 +8,12 @@ local fn = vim.fn
 local sep_l = ""
 
 M.base46 = {
-	theme = "catppuccin",
+  theme = "catppuccin",
 
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+  -- hl_override = {
+  -- 	Comment = { italic = true },
+  -- 	["@comment"] = { italic = true },
+  -- },
 }
 
 -- M.nvdash = { load_on_startup = true }
@@ -25,7 +25,7 @@ M.ui = {
         local col = fn.virtcol "."
         local chad = string.format(" %d:%d", line, col) .. " │ "
 
-          -- default cursor_position module
+        -- default cursor_position module
         local left_sep = "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#" .. " "
 
         local current_line = fn.line "."
@@ -38,8 +38,15 @@ M.ui = {
 
         return left_sep .. "%#St_pos_text#" .. chad .. text .. " "
       end,
-    }
-  }
+    },
+  },
+}
+
+M.lsp = { signature = true }
+
+-- Install packages with mason
+M.mason = {
+  pkgs = {},
 }
 
 return M
