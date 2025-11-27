@@ -1,37 +1,57 @@
-|            |   Lsp   |  Lint   | format  |  debug  |
+| Langueges  |   Lsp   |  Lint   | format  |  debug  |
 | :--------- | :-----: | :-----: | :-----: | :-----: |
 | HTML       | &check; | &check; | &check; | &cross; |
 | CSS        | &check; | &check; | &check; | &cross; |
 | Javascript | &check; | &check; | &check; | &cross; |
 | Typescript | &check; | &check; | &check; | &cross; |
 | Nodejs     | &check; | &check; | &check; | &cross; |
-| rust       | &check; | &check; | &check; | &check; |
+| Rust       | &check; | &check; | &check; | &check; |
+| Go         | &check; | &check; | &check; | &check; |
 
 ## HTML
-Lsp: ```html```
 
-linter: ```biome```
+Lsp: `html`
 
-formatter: ```biome```
+linter: `biome`
+
+formatter: `biome`
+
 ## CSS
-Lsp: ```cssls```
 
-linter: ```biome```
+Lsp: `cssls`
 
-formatter: ```biome```
-## javascript & typescript
-Lsp: ```ts_ls```
+linter: `biome`
 
-linter: ```biome```
+formatter: `biome`
 
-formatter: ```biome```
-## rust
-Lsp: ```rust-analyzer```
+## Javascript & Typescript
 
-linter: ```clippy```
+Lsp: `ts_ls`
 
-formatter: ```rustfmt```
+linter: `biome`
 
-debugger: ```codelldb```
+formatter: `biome`
+
+## Rust
+
+Lsp: `rust-analyzer`
+
+linter: `clippy`
+
+formatter: `rustfmt`
+
+debugger: `codelldb`
 
 Cargo.toml dependency version control with [cargo.nvim](https://github.com/Saecki/crates.nvim/)
+
+## GO
+
+Lsp: `gopls`
+
+linter: `gopls`
+
+formatter: `gofumpt` & `goimports-reviser`
+
+debugger: `delve`
+
+Additional functionality added using [gopher.nvim](https://github.com/olexsmir/gopher.nvim)

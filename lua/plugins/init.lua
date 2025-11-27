@@ -70,4 +70,20 @@ return {
 			require("configs.crates")
 		end,
 	},
+	{
+		"olexsmir/gopher.nvim",
+		ft = "go",
+		opts = {},
+		config = function()
+			require("gopher").setup()
+		end,
+	},
+	{
+		"leoluz/nvim-dap-go",
+		ft = "go",
+		dependencies = { "mfussenegger/nvim-dap" },
+		config = function()
+			require("dap-go").setup()
+		end,
+	},
 }

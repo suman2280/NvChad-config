@@ -11,6 +11,7 @@ local options = {
 		jsonc = { "biome" },
 		graphql = { "biome" },
 		rust = { "rustfmt" },
+		go = { "goimports-reviser", "gofumpt" },
 	},
 
 	format_on_save = {
