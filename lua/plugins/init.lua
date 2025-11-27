@@ -47,35 +47,13 @@ return {
 		ft = { "rust" },
 		dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig" },
 		config = function()
-			local codelldb = vim.fn.expand("$MASON/packages/codelldb")
-			local extension_path = codelldb .. "/extension/"
-			local codelldb_path = extension_path .. "adapter/codelldb"
-			local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
-			local cfg = require("rustaceanvim.config")
-
-			vim.g.rustaceanvim = {
-				dap = {
-					adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
-				},
-			}
+			require("configs.rust")
 		end,
 	},
 	{
 		"mfussenegger/nvim-dap",
 		config = function()
-			local dap, dapui = require("dap"), require("dapui")
-			dap.listeners.before.attach.dapui_config = function()
-				dapui.open()
-			end
-			dap.listeners.before.launch.dapui_config = function()
-				dapui.open()
-			end
-			dap.listeners.before.event_terminated.dapui_config = function()
-				dapui.close()
-			end
-			dap.listeners.before.event_exited.dapui_config = function()
-				dapui.close()
-			end
+			require("configs.dap")
 		end,
 	},
 	{
@@ -89,20 +67,7 @@ return {
 		"saecki/crates.nvim",
 		ft = { "rust", "toml" },
 		config = function()
-			require("crates").setup({
-				lsp = {
-					enabled = true,
-					on_attach = function() end,
-					actions = true,
-					completion = true,
-					hover = true,
-				},
-				completion = {
-					crates = {
-						enabled = true,
-					},
-				},
-			})
+			require("configs.crates")
 		end,
 	},
 }
