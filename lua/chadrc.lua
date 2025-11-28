@@ -47,7 +47,7 @@ M.lsp = { signature = true }
 
 -- Install packages with mason
 M.mason = {
-	pkgs = { "rust-analyzer", "codelldb", "goimports-reviser", "gofumpt", "delve" },
+	pkgs = { "rust-analyzer", "codelldb", "goimports-reviser", "gofumpt", "delve", "clang-format" },
 }
 
 M.setup = function()

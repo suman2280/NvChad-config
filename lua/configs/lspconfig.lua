@@ -3,7 +3,7 @@ require("nvchad.configs.lspconfig").defaults()
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local servers = { "html", "cssls", "biome", "ts_ls", "gopls" }
+local servers = { "html", "cssls", "biome", "ts_ls", "gopls", "clangd" }
 vim.lsp.enable(servers)
 
 -- read :h vim.lsp.config for changing options of lsp servers
@@ -30,4 +30,12 @@ vim.lsp.config["biome"] = {
 		"html",
 		"graphql",
 	},
+}
+
+vim.lsp.config["clangd"] = {
+	on_attach = function(client, bufnr)
+		client.server_capabilities.signatureHelpProvider = false
+		on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
 }

@@ -24,7 +24,7 @@ Follow these steps to set up your Neovim environment:
 **Make sure to setup a Nerd font as terminal font**
 
    ```bash
-   yay -S git nvim nodejs npm
+   yay -S git nvim nodejs npm rustup go gcc g++
    ```
 ****
 **Clone the repository**

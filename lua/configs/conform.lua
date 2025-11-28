@@ -12,6 +12,8 @@ local options = {
 		graphql = { "biome" },
 		rust = { "rustfmt" },
 		go = { "goimports-reviser", "gofumpt" },
+		c = { "clang-format" },
+		cpp = { "clang-format" },
 	},
 
 	format_on_save = {

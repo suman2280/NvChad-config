@@ -27,6 +27,8 @@ return {
 				"css",
 				"javascript",
 				"go",
+				"c",
+				"cpp",
 			},
 		},
 	},
