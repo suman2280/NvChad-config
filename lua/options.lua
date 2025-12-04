@@ -1,4 +1,4 @@
-require "nvchad.options"
+require("nvchad.options")
 
 -- add yours here!
 
@@ -9,3 +9,5 @@ o.softtabstop = 4
 o.colorcolumn = "80"
 o.relativenumber = true
 -- o.cursorlineopt ='both' -- to enable cursorline!
+
+vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/snippets"

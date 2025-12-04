@@ -88,13 +88,4 @@ return {
 			require("dap-go").setup()
 		end,
 	},
-	{
-		"L3MON4D3/LuaSnip",
-		config = function()
-			-- This loads all .lua files in the specified path
-			require("luasnip.loaders.from_lua").load({
-				paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
-			})
-		end,
-	},
 }
